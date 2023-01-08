@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Vowel {
-    static final String loc = "src/main/resources/data/";
+    static final String loc = "src/main/resources/data/input.txt";
+    static final String loc2 = "src/main/resources/data/output.txt";
     public static List<String> readFile(File source) throws IOException{
         List<String> data = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(source))) {
@@ -27,9 +28,10 @@ public class Vowel {
             }
         }
     }
-    public static void main(String[] args) throws IOException {
-        File source = new File(loc+"input.txt");
-        FileReader file = new FileReader(loc+"input.txt");
+
+    public static void outputResult(String src) throws IOException{
+        File source = new File(src);
+        FileReader file = new FileReader(src);
         BufferedReader br = new BufferedReader(file);
         String line;
         String[] words = null;
@@ -41,19 +43,19 @@ public class Vowel {
         }
 
 
-        File destination = new File(loc+"output.txt");
+        File destination = new File(loc2);
         List<String> data = readFile(source);
         List<String> st = new ArrayList<>();
         assert words != null;
         Stream<String> stream = Arrays.stream(words);
         TreeMap<Integer, List<String>> map = stream
                 .collect(Collectors.groupingBy(String::length, TreeMap::new, Collectors.toList()));
-        System.out.println(map);
+//        System.out.println(map);
 
         for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
             Set<Character> set = new HashSet<>();
             List<Character> list = new ArrayList<>();
-            double no_of_letters, no_of_vowels, avg;
+            double no_of_vowels, avg;
             int no_of_words;
             for (String str:
                     entry.getValue()) {
@@ -74,13 +76,16 @@ public class Vowel {
 
             avg = no_of_vowels/no_of_words;
 
-           String last =  "("+set+","+entry.getKey()+") -> "+avg;
-           st.add(last);
+            String last =  "("+set+","+entry.getKey()+") -> "+avg;
+            st.add(last);
 
         }
 
         writeFile(st,destination);
 
+    }
+    public static void main(String[] args) throws IOException {
+        outputResult(loc);
     }
 
 }
