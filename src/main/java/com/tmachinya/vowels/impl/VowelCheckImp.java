@@ -1,7 +1,9 @@
 package com.tmachinya.vowels.impl;
 
 import com.tmachinya.vowels.ifaces.VowelCheck;
+import org.springframework.stereotype.Component;
 
+@Component
 public class VowelCheckImp implements VowelCheck {
     @Override
     public boolean isVowel(int i,String str){
