@@ -35,11 +35,10 @@ public class Vowel {
         BufferedReader br = new BufferedReader(file);
         String line;
         String[] words = null;
-        int count = 0;
 
         //Gets each line till end of file is reached
         while((line = br.readLine()) != null) {
-            words = line.split(" ");
+            words = line.split("\\s+");
         }
 
 
@@ -48,9 +47,9 @@ public class Vowel {
         List<String> st = new ArrayList<>();
         assert words != null;
         Stream<String> stream = Arrays.stream(words);
-        TreeMap<Integer, List<String>> map = stream
-                .collect(Collectors.groupingBy(String::length, TreeMap::new, Collectors.toList()));
-//        System.out.println(map);
+        HashMap<Integer, List<String>> map = stream
+                .collect(Collectors.groupingBy(String::length, HashMap::new, Collectors.toList()));
+        System.out.println(map);
 
         for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
             Set<Character> set = new HashSet<>();
@@ -76,7 +75,7 @@ public class Vowel {
 
             avg = no_of_vowels/no_of_words;
 
-            String last =  "("+set+","+entry.getKey()+") -> "+avg;
+            String last =  "("+set+","+entry.getKey()+") -> "+avg+"  ";
             st.add(last);
 
         }
