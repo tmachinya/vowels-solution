@@ -1,16 +1,9 @@
-package com.tmachinya.vowels.logic;
+package com.tmachinya.vowels.impl;
 
-import org.springframework.stereotype.Component;
+import com.tmachinya.vowels.ifaces.VowelCheck;
 
-import java.io.*;
-import java.util.List;
-@Component
-public class Vowel {
-
-    public static void main(String[] args) throws IOException {
-//        outputResult(loc);
-    }
-
+public class VowelCheckImp implements VowelCheck {
+    @Override
     public boolean isVowel(int i,String str){
         return str.toLowerCase().charAt(i) == 'a'
                 | str.toLowerCase().charAt(i) == 'e'
@@ -18,6 +11,4 @@ public class Vowel {
                 | str.toLowerCase().charAt(i) == 'o'
                 | str.toLowerCase().charAt(i) == 'u';
     }
-
-
 }

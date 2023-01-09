@@ -33,7 +33,6 @@ public class VowelsApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		File source = new File(inputLocation);
 		String[] words = wordsFileReader.readFile(source);
-		System.out.println(Arrays.toString(words));
 
 		List<String> output = vowelsAvgCalculator.calculateAverage(words);
 		File destination = new File(outputLocation);
