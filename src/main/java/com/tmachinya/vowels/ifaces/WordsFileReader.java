@@ -1,9 +1,9 @@
-package com.tmachinya.vowels.logic;
+package com.tmachinya.vowels.ifaces;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 public interface WordsFileReader {
-    List<String> readFile(File source) throws IOException;
+    String[] readFile(File source) throws IOException;
 }

@@ -1,5 +1,4 @@
 package com.tmachinya.vowels;
 
-public class VowelTest {
-
+public class FileWritterTest {
 }
