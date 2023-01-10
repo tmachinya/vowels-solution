@@ -1,8 +1,7 @@
 package com.tmachinya.vowels.impl;
 
 import com.tmachinya.vowels.ifaces.VowelCheck;
-import com.tmachinya.vowels.ifaces.VowelsAvgCalculator;
-import com.tmachinya.vowels.logic.Vowel;
+import com.tmachinya.vowels.ifaces.VowelsAverageCalculator;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -10,10 +9,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
-public class VowelsAvgCalculatorImp implements VowelsAvgCalculator {
+public class VowelsAverageCalculatorImp implements VowelsAverageCalculator {
     private final VowelCheck vowelCheck;
 
-    public VowelsAvgCalculatorImp(VowelCheck vowelCheck) {
+    public VowelsAverageCalculatorImp(VowelCheck vowelCheck) {
         this.vowelCheck = vowelCheck;
     }
 

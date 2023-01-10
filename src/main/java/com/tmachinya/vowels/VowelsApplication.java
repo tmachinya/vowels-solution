@@ -1,6 +1,6 @@
 package com.tmachinya.vowels;
 
-import com.tmachinya.vowels.ifaces.VowelsAvgCalculator;
+import com.tmachinya.vowels.ifaces.VowelsAverageCalculator;
 import com.tmachinya.vowels.ifaces.WordsFileReader;
 import com.tmachinya.vowels.ifaces.WordsFileWritter;
 import org.springframework.boot.CommandLineRunner;
@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -17,9 +16,9 @@ public class VowelsApplication implements CommandLineRunner {
 	static final String outputLocation = "src/main/resources/data/output.txt";
 	private final WordsFileReader wordsFileReader;
 	private final WordsFileWritter wordsFileWritter;
-	private final VowelsAvgCalculator vowelsAvgCalculator;
+	private final VowelsAverageCalculator vowelsAvgCalculator;
 
-	public VowelsApplication(WordsFileReader wordsFileReader, WordsFileWritter wordsFileWritter, VowelsAvgCalculator vowelsAvgCalculator) {
+	public VowelsApplication(WordsFileReader wordsFileReader, WordsFileWritter wordsFileWritter, VowelsAverageCalculator vowelsAvgCalculator) {
 		this.wordsFileReader = wordsFileReader;
 		this.wordsFileWritter = wordsFileWritter;
 		this.vowelsAvgCalculator = vowelsAvgCalculator;
